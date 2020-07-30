@@ -23,7 +23,7 @@ export class LoginService {
   getEmployee() {
     return this.firestore.collection(constants.collections.employee).snapshotChanges();
   }
-  
+
   registerUser(user) {
     return this.firestore.collection(constants.collections.super_admin).add(user);
   }

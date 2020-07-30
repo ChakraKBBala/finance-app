@@ -36,7 +36,7 @@ export class ViewAdminComponent implements OnInit {
     //     } as User;
     //   });
     //   console.log('admin data received is', this.admin);
-     
+
     // });
   }
 
@@ -47,7 +47,7 @@ export class ViewAdminComponent implements OnInit {
   editAdminClose() {
     this.isModalVisible = false;
   }
-  
+
   deleteAdmin(adminId: string) {
     this.loginService.deleteUser(adminId);
   }

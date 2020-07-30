@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { AccountSettingComponent } from './components/account-setting/account-setting.component';
 import { AppDashboardComponent } from './components/dashboard/dashboard.component';
 import { AppHomeComponent } from './components/home/home.component';

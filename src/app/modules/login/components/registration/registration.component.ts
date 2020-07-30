@@ -27,7 +27,9 @@ export class RegistrationComponent implements OnInit {
       dob: [null, Validators.compose([Validators.required])],
       age: [null, Validators.compose([Validators.required])],
       panCardNumber: [null, Validators.compose([Validators.required])],
-      phoneNumber: [null, Validators.compose([Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")])],
+      phoneNumber:
+        [null, Validators.compose([Validators.required,
+        Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')])],
       email: [null, Validators.compose([Validators.required, Validators.pattern('^([a-zA-Z0-9_.-]+)@([a-zA-Z0-9_.-]+)\\.([a-zA-Z]{2,5})$')])],
       password: [null, Validators.compose([Validators.required])],
       confirmPassword: [null, Validators.compose([Validators.required])],
@@ -79,9 +81,8 @@ export class RegistrationComponent implements OnInit {
       await this.loginService.SignUp(JSON.parse(request).email, JSON.parse(request).password);
       this.close.emit({ action: 'Registeration window closed' });
       alert('Super Admin Account created successfully');
-    }
-    else {
-      alert('Please enter valid data')
+    } else {
+      alert('Please enter valid data');
     }
   }
 

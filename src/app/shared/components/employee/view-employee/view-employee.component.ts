@@ -23,7 +23,7 @@ export class ViewEmployeeComponent implements OnInit {
         } as Employee;
       });
       console.log('employe data received is', this.employees);
-  
+
     });
 
   }

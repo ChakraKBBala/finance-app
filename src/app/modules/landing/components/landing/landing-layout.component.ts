@@ -38,14 +38,13 @@ export class AppLandingLayoutComponent implements OnInit {
   }
 
   createAdmin(user: Admin) {
-    if(this.adminForm.valid){
+    if (this.adminForm.valid) {
     const request = JSON.stringify(user);
     console.log('JSON.parse(request) is', JSON.parse(request));
     this.loginService.registerUser(JSON.parse(request));
     alert('Admin Account created successfully');
-  }
-  else{
-    alert('Please enter a valid data')
+  } else {
+    alert('Please enter a valid data');
   }
 }
 
