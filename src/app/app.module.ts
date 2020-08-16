@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
@@ -28,7 +28,8 @@ import { AppLoginModule } from '../app/modules/login/login.module';
     ReactiveFormsModule,
     AppLoginModule,
     AppLandingModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

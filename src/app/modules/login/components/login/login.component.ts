@@ -21,6 +21,7 @@ export class AppLoginComponent {
   constructor(private loginService: LoginService, private _ROUTER: Router) { }
 
   onClickLogin() {
+    this._ROUTER.navigate(['/landing']);
     this.loginService.getUser().subscribe(async data => {
       console.log('users received is', data);
       const users = data.map(e => {
