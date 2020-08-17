@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../../login/login.service';
-import { User, Admin } from '../../../../shared/models/user.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Admin } from 'src/app/shared/models/user.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/modules/login/login.service';
 
 @Component({
-  selector: 'app-landing-component',
-  templateUrl: './landing-layout.component.html',
-  styleUrls: ['./landing-layout.component.scss']
+  selector: 'app-add-admin',
+  templateUrl: './add-admin.component.html',
+  styleUrls: ['./add-admin.component.scss']
 })
-
-export class AppLandingLayoutComponent implements OnInit {
+export class AddAdminComponent implements OnInit {
   admin = new Admin();
   adminForm: FormGroup;
 
@@ -19,7 +17,7 @@ export class AppLandingLayoutComponent implements OnInit {
   ngOnInit(): void {
     this.adminForm = this.formBuilder.group({
       email: [null, Validators.compose([Validators.required])],
-      age: [null, Validators.compose([Validators.required])],
+      // age: [null, Validators.compose([Validators.required])],
       financeId: [null, Validators.compose([Validators.required])],
       password: [null, Validators.compose([Validators.required])],
       financeName: [null, Validators.compose([Validators.required])],
@@ -27,9 +25,9 @@ export class AppLandingLayoutComponent implements OnInit {
       adminName: [null, Validators.compose([Validators.required])],
       adminNickName: [null, Validators.compose([Validators.required])],
       allocatedAccount: [null, Validators.compose([Validators.required])],
-      financeLogo: [null, Validators.compose([Validators.required])],
-      state: [null, Validators.compose([Validators.required])],
-      district: [null, Validators.compose([Validators.required])],
+      // financeLogo: [null, Validators.compose([Validators.required])],
+      // state: [null, Validators.compose([Validators.required])],
+      // district: [null, Validators.compose([Validators.required])],
       streetName: [null, Validators.compose([Validators.required])],
       landmark: [null, Validators.compose([Validators.required])],
       pincode: [null, Validators.compose([Validators.required])],
@@ -41,13 +39,11 @@ export class AppLandingLayoutComponent implements OnInit {
     if (this.adminForm.valid) {
     const request = JSON.stringify(user);
     console.log('JSON.parse(request) is', JSON.parse(request));
+    // alert(JSON.stringify(user))
     this.loginService.registerUser(JSON.parse(request));
     alert('Admin Account created successfully');
   } else {
     alert('Please enter a valid data');
   }
 }
-
 }
-
-

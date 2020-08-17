@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, } from '@angular/core';
 import { LoginService } from '../../login.service';
 import { User, SuperAdmin } from '../../../../shared/models/user.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { ConfirmPasswordValidator } from 'src/app/shared/components/employee/add-employee/confirm-password-validator';
 
 @Component({
   selector: 'app-registration',
@@ -21,24 +22,34 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.superAdminForm = this.formBuilder.group({
-      NoOfFinance: [null],
-      age: [null],
-      district: [null],
-      dob: [null],
-      email: [null],
-      entrepreneurName: [null],
-      financeName: [null],
-      financeNumber: [null],
-      financeStartDate: [null],
-      landmark: [null],
-      panCardNumber: [null],
-      password: [null],
-      phoneNumber: [null],
-      pincode: [null],
-      skypeAccount: [null],
-      state: [null],
-      streetName: [null],
-    });
+      entrepreneurName: [null, Validators.compose([Validators.required])],
+
+      dob: [null, Validators.compose([Validators.required])],
+      age: [null, Validators.compose([Validators.required])],
+      panCardNumber: [null, Validators.compose([Validators.required])],
+      phoneNumber:
+        [null, Validators.compose([Validators.required,
+        Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')])],
+      email: [null, Validators.compose([Validators.required, Validators.pattern('^([a-zA-Z0-9_.-]+)@([a-zA-Z0-9_.-]+)\\.([a-zA-Z]{2,5})$')])],
+      password: [null, Validators.compose([Validators.required])],
+      confirmPassword: [null, Validators.compose([Validators.required])],
+      financeName: [null, Validators.compose([Validators.required])],
+      financeStartDate: [null, Validators.compose([Validators.required])],
+      NoOfFinance: [null, Validators.compose([Validators.required])],
+      skypeAccount: [null, Validators.compose([Validators.required])],
+      financeNumber: [null, Validators.compose([Validators.required])],
+
+      state: [null, Validators.compose([Validators.required])],
+      district: [null, Validators.compose([Validators.required])],
+      streetName: [null, Validators.compose([Validators.required])],
+      landmark: [null, Validators.compose([Validators.required])],
+      pincode: [null, Validators.compose([Validators.required])],
+
+    },
+      {
+        validator: ConfirmPasswordValidator('password', 'confirmPassword')
+      }
+    );
     this.user = {
       id: 'id test',
       address: 'address test',
@@ -62,11 +73,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   async create(user: SuperAdmin) {
-    const request = JSON.stringify(user);
-    await this.loginService.registerUser(JSON.parse(request));
-    await this.loginService.SignUp(JSON.parse(request).email, JSON.parse(request).password);
-    this.close.emit({ action: 'Registeration window closed' });
-    alert('Super Admin Account created successfully');
+
+    if (this.superAdminForm.valid) {
+
+      const request = JSON.stringify(user);
+      await this.loginService.registerUser(JSON.parse(request));
+      await this.loginService.SignUp(JSON.parse(request).email, JSON.parse(request).password);
+      this.close.emit({ action: 'Registeration window closed' });
+      alert('Super Admin Account created successfully');
+    } else {
+      alert('Please enter valid data');
+    }
   }
 
   update(user: User) {

@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppLandingRoutingModule } from './landing-routing.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { FinanceAppSharedModule } from 'src/app/shared/shared-module.module';
+
 
 @NgModule({
     declarations: [
@@ -14,7 +16,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        AppLandingRoutingModule
+        AppLandingRoutingModule,
+        FinanceAppSharedModule
     ],
     exports: [
         AppLandingLayoutComponent
