@@ -1,0 +1,20 @@
+<nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
+    <div class='collapse navbar-collapse navbar-hamburger-delicious'>
+        <ul class='nav navbar-nav side-nav fadeInLeft'>
+            <ng-container *ngFor="let nav of sidenav;let i = index">
+                <li class='admin' *ngIf="nav.nav_type == 'single'"><a><i class={{nav.icon_name}}
+                            aria-hidden="true"></i>{{nav.name}}</a></li>
+                <li class='admin dropdown user-dropdown' *ngIf="nav.nav_type == 'dropdown'">
+                    <a href='#' class='dropdown-toggle' data-toggle='dropdown'><span class="js-user-name"><i
+                                class={{nav.icon_name}} aria-hidden="true"></i>{{nav.name}}</span><b
+                            class='caret'></b></a>
+                    <ul class='dropdown-menu'>
+                        <ng-container *ngFor="let child of nav.child_menu">
+                            <li class='admin'><a>{{child.name}}</a></li>
+                        </ng-container>
+                    </ul>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</nav>

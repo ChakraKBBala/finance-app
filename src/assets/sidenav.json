@@ -1,0 +1,129 @@
+[
+    {
+        "name": "Home",
+        "icon_name": "fa fa-home",
+        "rourter_url": "",
+        "nav_type": "single"
+    },
+    {
+        "name": "Repledge Loans",
+        "icon_name": "fa fa-university",
+        "nav_type": "dropdown",
+        "child_menu": [
+            {
+                "name": "Add Repledge",
+                "rourter_url": "",
+                "nav_type": "single"
+            },
+            {
+                "name": "Repledge Loan Summary",
+                "rourter_url": "",
+                "nav_type": "single"
+            }
+        ]
+    },
+    {
+        "name": "Ready to Auction",
+        "icon_name": "fa fa-ban",
+        "nav_type": "dropdown",
+        "child_menu": [
+            {
+                "name": "Auction Loan Summary",
+                "rourter_url": "",
+                "nav_type": "single"
+            }
+        ]
+    },
+    {
+        "name": "All Loan Reports",
+        "icon_name": "fa fa-book",
+        "rourter_url": "",
+        "nav_type": "single"
+    },
+    {
+        "name": "Add Info",
+        "icon_name": "fa fa-info",
+        "rourter_url": "",
+        "nav_type": "single"
+    },
+    {
+        "name": "Expenses",
+        "icon_name": "fa fa-inr",
+        "nav_type": "dropdown",
+        "child_menu": [
+            {
+                "name": "Transaction History",
+                "rourter_url": "",
+                "nav_type": "single"
+            },
+            {
+                "name": "Dashboard",
+                "rourter_url": "",
+                "nav_type": "single"
+            }
+        ]
+    },
+    {
+        "name": "Add Loan Amount",
+        "icon_name": "fa fa-plus-circle",
+        "nav_type": "dropdown",
+        "child_menu": [
+            {
+                "name": "Add Loan Amount",
+                "rourter_url": "",
+                "nav_type": "single"
+            },
+            {
+                "name": "Add Loan Summary",
+                "rourter_url": "",
+                "nav_type": "single"
+            }
+        ]
+    },
+    {
+        "name": "Account Settings",
+        "icon_name": "fa fa-cog",
+        "rourter_url": "",
+        "nav_type": "single"
+    },
+    {
+        "name": "Admin",
+        "icon_name": "fa fa-plus",
+        "nav_type": "dropdown",
+        "child_menu": [
+            {
+                "name": "Add Admin",
+                "rourter_url": "",
+                "nav_type": "single"
+            },
+            {
+                "name": "view Admin",
+                "rourter_url": "",
+                "nav_type": "single"
+            }
+        ]
+    },
+    {
+        "name": "Employee",
+        "icon_name": "fa fa-plus",
+        "nav_type": "dropdown",
+        "child_menu": [
+            {
+                "name": "Add Employee",
+                "rourter_url": "",
+                "nav_type": "single"
+            },
+            {
+                "name": "view Employee",
+                "rourter_url": "",
+                "nav_type": "single"
+            }
+        ]
+    },
+    {
+        "name": "Help",
+        "icon_name": "fa fa-question",
+        "rourter_url": "",
+        "nav_type": "single"
+    }
+]

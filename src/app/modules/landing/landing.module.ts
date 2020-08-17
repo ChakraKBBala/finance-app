@@ -3,10 +3,12 @@ import { AppLandingLayoutComponent } from '../landing/components/landing/landing
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppLandingRoutingModule } from './landing-routing.module';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
     declarations: [
         AppLandingLayoutComponent,
+        SidenavComponent,
     ],
     imports: [
         CommonModule,

@@ -21,37 +21,38 @@ export class AppLoginComponent {
   constructor(private loginService: LoginService, private _ROUTER: Router) { }
 
   onClickLogin() {
-    this.loginService.getUser().subscribe(async data => {
-      console.log('users received is', data);
-      const users = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-          ...(e.payload.doc.data() as object)
-        } as User;
-      });
+    this._ROUTER.navigate(['/landing']);
+    // this.loginService.getUser().subscribe(async data => {
+    //   console.log('users received is', data);
+    //   const users = data.map(e => {
+    //     return {
+    //       id: e.payload.doc.id,
+    //       ...(e.payload.doc.data() as object)
+    //     } as User;
+    //   });
 
-      console.log('users FORMAT received is', users);
-      let isUserAuthenticated = false;
-      let email = null;
-      let password = null;
-      users.forEach((user) => {
-        if (user.email === this.userEmail && user.password === this.userPassword) {
-          isUserAuthenticated = true;
-          email = user.email;
-          password = user.password;
-        }
-      });
-      if (isUserAuthenticated) {
-        const authStatus = await this.loginService.SignIn(email, password);
-        console.log('authstatus is', authStatus);
-        // alert('Authenticated in successfully');
-        this._ROUTER.navigate(['/landing']);
+    //   console.log('users FORMAT received is', users);
+    //   let isUserAuthenticated = false;
+    //   let email = null;
+    //   let password = null;
+    //   users.forEach((user) => {
+    //     if (user.email === this.userEmail && user.password === this.userPassword) {
+    //       isUserAuthenticated = true;
+    //       email = user.email;
+    //       password = user.password;
+    //     }
+    //   });
+    //   if (isUserAuthenticated) {
+    //     const authStatus = await this.loginService.SignIn(email, password);
+    //     console.log('authstatus is', authStatus);
+    //     // alert('Authenticated in successfully');
+    //     this._ROUTER.navigate(['/landing']);
 
-      } else {
-        alert('Please check your credentials');
-      }
+    //   } else {
+    //     alert('Please check your credentials');
+    //   }
 
-    });
+    // });
   }
 
   createRegister() {
